@@ -27,39 +27,40 @@ Current class and templates written by Md5Chap
 
 struct _BLOWFISH_CTX
 {
-	unsigned long P[16+2];
-	unsigned long S[4*256];
+	unsigned long P[16 + 2];
+	unsigned long S[4 * 256];
 };
 
 class CBlowfish
 {
-	public:
-		enum _eIV
-		{
-			IV_BOTH,
-			IV_ENC,
-			IV_DEC
-		};
-		CBlowfish();
-		CBlowfish(void* key, unsigned int len);
-		~CBlowfish();
-		void Init(void* key, unsigned int len);
-		void SetIV(_eIV which, unsigned long IV[2]);
-		void SetIV(_eIV which, unsigned long left, unsigned long right);
-		void GetIV(_eIV which, unsigned long IV[2]);
-		void GetIV(_eIV which, unsigned long &left, unsigned long &right);
-		void Final();
-		void EncryptECB(void *data, unsigned int len);
-		void DecryptECB(void *data, unsigned int len);
-		void EncryptCBC(void *data, unsigned int len);
-		void DecryptCBC(void *data, unsigned int len);
-		void EncryptPCBC(void *data, unsigned int len);
-		void DecryptPCBC(void *data, unsigned int len);
-	private:
-		bool m_bInited;
-		unsigned long m_IV_Enc[2];
-		unsigned long m_IV_Dec[2];
-		_BLOWFISH_CTX m_ctx;
+public:
+	enum _eIV
+	{
+		IV_BOTH,
+		IV_ENC,
+		IV_DEC
+	};
+	CBlowfish();
+	CBlowfish(void *key, unsigned int len);
+	~CBlowfish();
+	void Init(void *key, unsigned int len);
+	void SetIV(_eIV which, unsigned long IV[2]);
+	void SetIV(_eIV which, unsigned long left, unsigned long right);
+	void GetIV(_eIV which, unsigned long IV[2]);
+	void GetIV(_eIV which, unsigned long &left, unsigned long &right);
+	void Final();
+	void EncryptECB(void *data, unsigned int len);
+	void DecryptECB(void *data, unsigned int len);
+	void EncryptCBC(void *data, unsigned int len);
+	void DecryptCBC(void *data, unsigned int len);
+	void EncryptPCBC(void *data, unsigned int len);
+	void DecryptPCBC(void *data, unsigned int len);
+
+private:
+	bool m_bInited;
+	unsigned long m_IV_Enc[2];
+	unsigned long m_IV_Dec[2];
+	_BLOWFISH_CTX m_ctx;
 };
 
-#endif//_BLOWFISH_H
+#endif //_BLOWFISH_H
