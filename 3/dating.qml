@@ -58,14 +58,14 @@ Window {
                     anchors.leftMargin: 0
 
                     RadioButton {
-                        id: mySexM
+                        id: myGenderM
                         text: qsTr("М")
                         checked: true
                     }
 
 
                     RadioButton {
-                        id: mySexW
+                        id: myGenderW
                         text: qsTr("Ж")
                     }
 
@@ -155,13 +155,13 @@ Window {
                     anchors.leftMargin: 0
 
                     RadioButton {
-                        id: forSexM
+                        id: forGenderM
                         text: qsTr("М")
                         checked: true
                     }
 
                     RadioButton {
-                        id: forSexW
+                        id: forGenderW
                         text: qsTr("Ж")
                     }
                 }
@@ -182,9 +182,9 @@ Window {
                 icon.color: "#ffffff"
                 function handleClick(){
                    const myFieldsIds = ["myName","myAge", 'myHobby', "myCity", "myAbout", "myEducation"];
-                    const myRadioSelected = mySexM.checked ? mySexM : mySexW;
+                    const myRadioSelected = myGenderM.checked ? myGenderM : myGenderW;
                     const forFieldsIds = ["forEducation"];
-                    const forRadioSelected = forSexM.checked ? forSexM : forSexW;
+                    const forRadioSelected = forGenderM.checked ? forGenderM : forGenderW;
 
                     function printValues(preText, fieldsList, sexRadio){
                         console.log(preText);
